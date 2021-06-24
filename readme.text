@@ -1,0 +1,61 @@
+The repo will be useful to do powerful searches, you need to just pass Set<Objects> you want to
+search against and the phrase that is sent by the User. You can examples below.
+
+
+Tests Examples :
+                    @Test
+                	public void testgetResults() {
+                		Set<Searchable> set = getSearchables();
+
+                		List<Searchable> res = ApproximitySearch.getResults("Ron", set);
+                    	System.out.println("Res : " + res.toString());
+                	}
+
+                	@Test
+                	public void testgetResults2() {
+                		Set<Searchable> set = getSearchables();
+
+                		List<Searchable> res = ApproximitySearch.getResults("Ronaldo", set);
+                		System.out.println("Res : " + res.toString());
+                	}
+
+                	@Test
+                	public void testgetResults3() {
+                		Set<Searchable> set = getSearchables();
+
+                		List<Searchable> res = ApproximitySearch.getResults("Roaldo", set);
+                		System.out.println("Res : " + res.toString());
+                	}
+
+                	@Test
+                	public void testgetResults4() {
+                		Set<Searchable> set = getSearchables();
+
+                		List<Searchable> res = ApproximitySearch.getResults("beham", set);
+                		System.out.println("Res : " + res.toString());
+                	}
+
+                	@Test
+                	public void testgetResults5() {
+                		Set<Searchable> set = getSearchables();
+
+                		List<Searchable> res = ApproximitySearch.getResults("beham", set, 0.9);
+                		System.out.println("Res : " + res.toString());
+                	}
+
+
+
+How to use the score :
+If you want change the accuracy, pass third parameter as in above test testgetResults5 (0.9 is passed).
+Default accuracy is 0.75.
+
+
+Steps to use the repo :
+Extend you class with Class Searchable and set the id and name field. E.g. If Players is your class,
+then pass id and name in the constructor and use super to put it into Searchable Class.
+
+        public Players(String id, String name) {
+                super(id, name);
+                this.id = id;
+                this.name = name;
+        }
